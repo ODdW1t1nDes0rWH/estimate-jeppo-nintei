@@ -146,45 +146,45 @@
       <div class="estimate-result" id="estimateResult" style="margin-top:10px;font-weight:800">合計: —</div>
       <div style="margin-top:8px"><button class="btn secondary" id="calcAll">全サービスを申し込む</button></div>
     </aside>
-    <!-- 使い方ガイド（Estimator直後に配置推奨） -->
+    <!-- 使い方ガイド（Estimator直後に配置） -->
 <section id="guide" aria-label="使い方ガイド">
   <div class="section-title"><h2>使い方ガイド</h2></div>
   <div class="feature" style="padding:16px">
     <ol style="margin:0 0 10px 1.2em">
       <li style="margin:6px 0">
-        サービスを選ぶ<br>
-        各項目のチェックをON/OFF。セクション見出し横の「このセクションをすべて選択」で一括操作できます。全体は「すべて選択／すべてのチェックを外す」ボタンで操作します。
+        <strong>1. サービスを選ぶ</strong>
+        <p>各項目のチェックを入れると、自動的に合計に反映されます。</p>
+        <p>セクションごとにまとめて選びたい場合は、見出し横の「このセクションをすべて選択」をクリック。</p>
+        <p>画面下の「すべて選択／すべてのチェックを外す」ボタンで一括操作も可能です。</p>
       </li>
       <li style="margin:6px 0">
-        オンライン相談の時間を入力<br>
-        「オンライン相談時間（時間）」に0以上の整数を入力。オンライン相談のチェックがONのときだけ計算に含まれます。
+        <strong>2. オンライン相談を設定する</strong>
+        <p>「オンライン相談時間（時間）」に希望する時間数を入力してください（0以上の整数）。</p>
+        <p>オンライン相談のチェックがONになっている場合のみ、料金に含まれます。</p>
       </li>
       <li style="margin:6px 0">
-        合計を計算する（3つのボタン）<br>
-        ・「合計を計算」…価格A（表示価格）の合計。オンライン相談は除外<br>
-        ・「オンライン相談を含めた合計を計算」…価格A＋オンライン相談（時間×15,000円/時）<br>
-        ・「全サービスを申し込む（セット価格B）」…価格B（Bがなければ条件/フル/表示価格の順）で全体を計算。プロジェクト管理のみチェックされた項目だけ含みます
+        <strong>3. 合計を確認する（3つの方法）</strong>
+        <p>通常の合計を計算 … 選択したサービスの合計金額を表示します（オンライン相談は含みません）。</p>
+        <p>オンライン相談を含めた合計 … 選択したサービスの合計 ＋ （相談時間 × 15,000円/時）。</p>
+        <p>全サービスを申し込む … 主要なサービスをまとめて計算し、セット割引が自動で適用されます。※一部のサービス（プロジェクト管理など）はチェックしたものだけ反映されます。</p>
       </li>
       <li style="margin:6px 0">
-        出力・保存<br>
-        「CSV出力」「JSON出力」で現在の選択状態を含めてダウンロード。「PDFダウンロード」で印刷保存（税別表示）。
+        <strong>4. 出力・保存する</strong>
+        <p>CSV出力／JSON出力 … 現在の選択内容をファイルとして保存できます。</p>
+        <p>PDFダウンロード … 印刷や社内共有に便利です（税別表示）。</p>
+      </li>
+      <li style="margin:6px 0">
+        <strong>5. よくある質問（FAQ）</strong>
+        <p>割引はどうやって反映されますか？ → 条件を満たすと自動で割引が適用されます。</p>
+        <p>オンライン相談を入れない場合は？ → 時間を0に設定するか、チェックを外してください。</p>
+        <p>保存方法は？ → CSV／JSON／PDFのいずれかで保存できます。</p>
       </li>
     </ol>
-
-    <details>
-      <summary style="cursor:pointer;font-weight:600">よくある質問</summary>
-      <ul style="margin:10px 0 0 1.2em">
-        <li>オンライン相談が合計に入らない → 項目のチェックがONか、時間が0でないかを確認してください。</li>
-        <li>全サービス（B計算）で金額が想定と違う → プロジェクト管理セクションはチェックONの項目のみ含まれます。</li>
-        <li>セクションの一括選択の表示がグレーになる → そのセクションで一部のみ選択されています（中間状態）。</li>
-      </ul>
-    </details>
-    <p class="note" style="margin-top:10px">価格A＝表示価格（通常合計）／価格B＝セット価格（全サービス申込時の割引価格）</p>
   </div>
 </section>
 
+<!-- 目次に「使い方」を自動追加（重複追加防止） -->
 <script>
-// 目次に「使い方」を自動追加（重複追加防止）
 document.addEventListener('DOMContentLoaded', ()=>{
   const tocList = document.querySelector('.toc ul');
   if(tocList && !tocList.querySelector('a[href="#guide"]')){

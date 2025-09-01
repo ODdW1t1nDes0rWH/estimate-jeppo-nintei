@@ -146,6 +146,57 @@
       <div class="estimate-result" id="estimateResult" style="margin-top:10px;font-weight:800">合計: —</div>
       <div style="margin-top:8px"><button class="btn secondary" id="calcAll">全サービスを申し込む</button></div>
     </aside>
+    <!-- 使い方ガイド（Estimator直後に配置推奨） -->
+<section id="guide" aria-label="使い方ガイド">
+  <div class="section-title"><h2>使い方ガイド</h2></div>
+  <div class="feature" style="padding:16px">
+    <ol style="margin:0 0 10px 1.2em">
+      <li style="margin:6px 0">
+        サービスを選ぶ<br>
+        各項目のチェックをON/OFF。セクション見出し横の「このセクションをすべて選択」で一括操作できます。全体は「すべて選択／すべてのチェックを外す」ボタンで操作します。
+      </li>
+      <li style="margin:6px 0">
+        オンライン相談の時間を入力<br>
+        「オンライン相談時間（時間）」に0以上の整数を入力。オンライン相談のチェックがONのときだけ計算に含まれます。
+      </li>
+      <li style="margin:6px 0">
+        合計を計算する（3つのボタン）<br>
+        ・「合計を計算」…価格A（表示価格）の合計。オンライン相談は除外<br>
+        ・「オンライン相談を含めた合計を計算」…価格A＋オンライン相談（時間×15,000円/時）<br>
+        ・「全サービスを申し込む（セット価格B）」…価格B（Bがなければ条件/フル/表示価格の順）で全体を計算。プロジェクト管理のみチェックされた項目だけ含みます
+      </li>
+      <li style="margin:6px 0">
+        出力・保存<br>
+        「CSV出力」「JSON出力」で現在の選択状態を含めてダウンロード。「PDFダウンロード」で印刷保存（税別表示）。
+      </li>
+    </ol>
+
+    <details>
+      <summary style="cursor:pointer;font-weight:600">よくある質問</summary>
+      <ul style="margin:10px 0 0 1.2em">
+        <li>オンライン相談が合計に入らない → 項目のチェックがONか、時間が0でないかを確認してください。</li>
+        <li>全サービス（B計算）で金額が想定と違う → プロジェクト管理セクションはチェックONの項目のみ含まれます。</li>
+        <li>セクションの一括選択の表示がグレーになる → そのセクションで一部のみ選択されています（中間状態）。</li>
+      </ul>
+    </details>
+    <p class="note" style="margin-top:10px">価格A＝表示価格（通常合計）／価格B＝セット価格（全サービス申込時の割引価格）</p>
+  </div>
+</section>
+
+<script>
+// 目次に「使い方」を自動追加（重複追加防止）
+document.addEventListener('DOMContentLoaded', ()=>{
+  const tocList = document.querySelector('.toc ul');
+  if(tocList && !tocList.querySelector('a[href="#guide"]')){
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#guide';
+    a.textContent = '使い方';
+    li.appendChild(a);
+    tocList.appendChild(li);
+  }
+});
+</script>
 
     <!-- 情報提供 -->
     <section>

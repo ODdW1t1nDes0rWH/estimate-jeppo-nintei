@@ -12,6 +12,7 @@
       --print-font: 'Noto Sans JP', 'Noto Sans', "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
     }
     *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{font-family:var(--print-font);margin:0;background:var(--bg);color:#172126;line-height:1.6;-webkit-font-smoothing:antialiased}
     .wrap{max-width:var(--container);margin:36px auto;padding:28px}
 
@@ -29,19 +30,20 @@
     .btn.secondary{background:#fff;color:var(--accent);border:2px solid rgba(0,102,179,0.12)}
 
     section{margin-top:28px}
-  .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px;justify-content:space-between}
-    .section-title h2{margin:0;font-size:1.12rem;position:relative;padding-left:12px}
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px;justify-content:space-between}
+    .section-title h2{margin:0;font-size:1.12rem;position:relative;padding-left:12px;scroll-margin-top:80px}
     .section-title h2::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:28px;background:linear-gradient(180deg,var(--accent),var(--accent-2));border-radius:4px}
+    .section-controls{display:flex;align-items:center;gap:10px}
 
     .grid{display:grid;gap:var(--g)}
     .pricing-groups{grid-template-columns:repeat(2,1fr)}
     .group{background:var(--card);padding:20px;border-radius:12px;border:1px solid rgba(10,20,40,0.04);box-shadow:0 4px 10px rgba(12,20,30,0.02);margin-bottom:12px}
-  .group h3{margin:0 0 12px;font-size:0.95rem;color:var(--accent);font-weight:700;padding-bottom:8px;border-bottom:2px solid rgba(0,102,179,0.08);letter-spacing:0.02em}
-  .item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px dashed rgba(15,25,30,0.04);gap:12px}
-  .item:first-of-type{border-top:0;padding-top:0}
-  .item .meta{flex:1;margin-right:10px}
-  .item .name{color:#111;font-size:0.98rem;font-weight:600}
-  .item .desc{color:var(--muted);font-size:0.92rem;margin-top:6px}
+    .group h3{margin:0 0 12px;font-size:0.95rem;color:var(--accent);font-weight:700;padding-bottom:8px;border-bottom:2px solid rgba(0,102,179,0.08);letter-spacing:0.02em}
+    .item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px dashed rgba(15,25,30,0.04);gap:12px}
+    .item:first-of-type{border-top:0;padding-top:0}
+    .item .meta{flex:1;margin-right:10px}
+    .item .name{color:#111;font-size:0.98rem;font-weight:600}
+    .item .desc{color:var(--muted);font-size:0.92rem;margin-top:6px}
 
     .price{font-weight:900;color:var(--accent);font-size:1.05rem}
     .price small{font-weight:500;color:var(--muted);display:block;font-size:0.78rem}
@@ -62,9 +64,9 @@
       .feature-cards{grid-template-columns:1fr}
       .logo{height:64px}
       .logo img{height:64px}
-  /* モバイルでは説明を価格の下に並べる */
-  .item{flex-direction:column;align-items:flex-start}
-  .item .meta{margin-right:0}
+      /* モバイルでは説明を価格の下に並べる */
+      .item{flex-direction:column;align-items:flex-start}
+      .item .meta{margin-right:0}
     }
 
     /* Print */
@@ -82,20 +84,20 @@
     .table td{padding:8px 10px;border-top:1px solid #f1f3f5}
     /* 価格桁揃え */
     .price{white-space:nowrap}
-  /* 目次と見積りのスタイル */
-  .toc{background:#fff;padding:12px;border-radius:10px;border:1px solid rgba(10,20,30,0.04);box-shadow:0 4px 10px rgba(12,20,30,0.02);margin-top:10px}
-  .toc ul{margin:8px 0 0;padding:0;list-style:none}
-  .toc li{margin:6px 0}
-  .toc a{color:var(--accent);text-decoration:none}
-  .estimator{background:linear-gradient(180deg,#f8fcff,#fff);padding:14px;border-radius:10px;border-left:4px solid var(--accent);margin-top:12px}
-  .estimator h3{margin:0 0 8px}
-  .item-checkbox{margin-right:10px;display:inline-flex;align-items:center;padding:6px 8px;border-radius:6px;cursor:pointer}
-  .item-checkbox input[type="checkbox"]{width:18px;height:18px;margin:0}
-  .skiplink{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    /* 目次と見積りのスタイル */
+    .toc{background:#fff;padding:12px;border-radius:10px;border:1px solid rgba(10,20,30,0.04);box-shadow:0 4px 10px rgba(12,20,30,0.02);margin-top:10px}
+    .toc ul{margin:8px 0 0;padding:0;list-style:none}
+    .toc li{margin:6px 0}
+    .toc a{color:var(--accent);text-decoration:none}
+    .estimator{background:linear-gradient(180deg,#f8fcff,#fff);padding:14px;border-radius:10px;border-left:4px solid var(--accent);margin-top:12px}
+    .estimator h3{margin:0 0 8px}
+    .item-checkbox{margin-right:10px;display:inline-flex;align-items:center;padding:6px 8px;border-radius:6px;cursor:pointer}
+    .item-checkbox input[type="checkbox"]{width:18px;height:18px;margin:0}
+    .skiplink{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div id="main" class="wrap" role="main">
     <a class="skiplink" href="#main">Skip to content</a>
     <header>
       <div class="logo"><img src="https://jepo.jp/wp-content/uploads/2024/08/logo-1024x192.webp" srcset="https://jepo.jp/wp-content/uploads/2024/08/logo-1024x192.webp 1x, https://jepo.jp/wp-content/uploads/2024/08/logo-1024x192.webp 2x" alt="じぇっぽロゴ"></div>
@@ -112,8 +114,8 @@
       <div class="cta">
         <a class="btn" href="#contact">お問い合わせ</a>
         <a class="btn secondary" href="#" onclick="window.print();return false;" aria-label="PDFとして保存">PDFダウンロード</a>
-        <button class="btn" id="exportCsv">CSV出力</button>
-        <button class="btn" id="exportJson">JSON出力</button>
+        <button class="btn" id="exportCsv" type="button">CSV出力</button>
+        <button class="btn" id="exportJson" type="button">JSON出力</button>
       </div>
     </div>
 
@@ -121,6 +123,7 @@
     <nav class="toc" aria-label="目次">
       <strong>目次</strong>
       <ul>
+        <li><a href="#guide">使い方</a></li>
         <li><a href="#info">情報提供</a></li>
         <li><a href="#diagnosis">診断</a></li>
         <li><a href="#design">基盤設計</a></li>
@@ -137,140 +140,144 @@
       <div style="margin-top:8px">
         <label>オンライン相談時間（時間）: <input type="number" id="onlineHours" min="0" value="1" style="width:72px"></label>
       </div>
-      <div style="margin-top:10px;display:flex;gap:8px">
-  <button class="btn" id="calcBtn">合計を計算</button>
-  <button class="btn" id="calcWithOnline">オンライン相談を含めた合計を計算する</button>
-  <button class="btn secondary" id="uncheckAll">すべてのチェックを外す</button>
-  <button class="btn secondary" id="checkAll">すべて選択</button>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" id="calcBtn" type="button">合計を計算</button>
+        <button class="btn" id="calcWithOnline" type="button">オンライン相談を含めた合計を計算する</button>
+        <button class="btn secondary" id="uncheckAll" type="button">すべてのチェックを外す</button>
+        <button class="btn secondary" id="checkAll" type="button">すべて選択</button>
       </div>
-      <div class="estimate-result" id="estimateResult" style="margin-top:10px;font-weight:800">合計: —</div>
-      <div style="margin-top:8px"><button class="btn secondary" id="calcAll">全サービスを申し込む</button></div>
+      <div class="estimate-result" id="estimateResult" style="margin-top:10px;font-weight:800" aria-live="polite">合計: —</div>
+      <div style="margin-top:8px"><button class="btn secondary" id="calcAll" type="button">全サービスを申し込む</button></div>
     </aside>
-    <!-- 使い方ガイド（Estimator直後に配置） -->
-<section id="guide" aria-label="使い方ガイド">
-  <div class="section-title"><h2>使い方ガイド</h2></div>
-  <div class="feature" style="padding:16px">
-    <ol style="margin:0 0 10px 1.2em">
-      <li style="margin:6px 0">
-        <strong>1. サービスを選ぶ</strong>
-        <p>各項目のチェックを入れると、自動的に合計に反映されます。</p>
-        <p>セクションごとにまとめて選びたい場合は、見出し横の「このセクションをすべて選択」をクリック。</p>
-        <p>画面下の「すべて選択／すべてのチェックを外す」ボタンで一括操作も可能です。</p>
-      </li>
-      <li style="margin:6px 0">
-        <strong>2. オンライン相談を設定する</strong>
-        <p>「オンライン相談時間（時間）」に希望する時間数を入力してください（0以上の整数）。</p>
-        <p>オンライン相談のチェックがONになっている場合のみ、料金に含まれます。</p>
-      </li>
-      <li style="margin:6px 0">
-        <strong>3. 合計を確認する（3つの方法）</strong>
-        <p>通常の合計を計算 … 選択したサービスの合計金額を表示します（オンライン相談は含みません）。</p>
-        <p>オンライン相談を含めた合計 … 選択したサービスの合計 ＋ （相談時間 × 15,000円/時）。</p>
-        <p>全サービスを申し込む … 主要なサービスをまとめて計算し、セット割引が自動で適用されます。※一部のサービス（プロジェクト管理など）はチェックしたものだけ反映されます。</p>
-      </li>
-      <li style="margin:6px 0">
-        <strong>4. 出力・保存する</strong>
-        <p>CSV出力／JSON出力 … 現在の選択内容をファイルとして保存できます。</p>
-        <p>PDFダウンロード … 印刷や社内共有に便利です（税別表示）。</p>
-      </li>
-      <li style="margin:6px 0">
-        <strong>5. よくある質問（FAQ）</strong>
-        <p>割引はどうやって反映されますか？ → 条件を満たすと自動で割引が適用されます。</p>
-        <p>オンライン相談を入れない場合は？ → 時間を0に設定するか、チェックを外してください。</p>
-        <p>保存方法は？ → CSV／JSON／PDFのいずれかで保存できます。</p>
-      </li>
-    </ol>
-  </div>
-</section>
 
-<!-- 目次に「使い方」を自動追加（重複追加防止） -->
-<script>
-document.addEventListener('DOMContentLoaded', ()=>{
-  const tocList = document.querySelector('.toc ul');
-  if(tocList && !tocList.querySelector('a[href="#guide"]')){
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = '#guide';
-    a.textContent = '使い方';
-    li.appendChild(a);
-    tocList.appendChild(li);
-  }
-});
-</script>
+    <!-- 使い方ガイド（Estimator直後に配置） -->
+    <section id="guide" aria-label="使い方ガイド">
+      <div class="section-title"><h2>使い方ガイド</h2></div>
+      <div class="feature" style="padding:16px">
+        <ol style="margin:0 0 10px 1.2em">
+          <li style="margin:6px 0">
+            <strong>1. サービスを選ぶ</strong>
+            <p>各項目のチェックを入れると、自動的に合計に反映されます。</p>
+            <p>セクションごとにまとめて選びたい場合は、見出し横の「このセクションをすべて選択」をクリック。</p>
+            <p>画面下の「すべて選択／すべてのチェックを外す」ボタンで一括操作も可能です。</p>
+          </li>
+          <li style="margin:6px 0">
+            <strong>2. オンライン相談を設定する</strong>
+            <p>「オンライン相談時間（時間）」に希望する時間数を入力してください（0以上の整数）。</p>
+            <p>オンライン相談のチェックがONになっている場合のみ、料金に含まれます。</p>
+          </li>
+          <li style="margin:6px 0">
+            <strong>3. 合計を確認する（3つの方法）</strong>
+            <p>通常の合計を計算 … 選択したサービスの合計金額を表示します（オンライン相談は含みません）。</p>
+            <p>オンライン相談を含めた合計 … 選択したサービスの合計 ＋ （相談時間 × 15,000円/時）。</p>
+            <p>全サービスを申し込む … 主要なサービスをまとめて計算し、セット割引が自動で適用されます。※一部のサービス（プロジェクト管理など）はチェックしたものだけ反映されます。</p>
+          </li>
+          <li style="margin:6px 0">
+            <strong>4. 出力・保存する</strong>
+            <p>CSV出力／JSON出力 … 現在の選択内容をファイルとして保存できます。</p>
+            <p>PDFダウンロード … 印刷や社内共有に便利です（税別表示）。</p>
+          </li>
+          <li style="margin:6px 0">
+            <strong>5. よくある質問（FAQ）</strong>
+            <p>割引はどうやって反映されますか？ → 条件を満たすと自動で割引が適用されます。</p>
+            <p>オンライン相談を入れない場合は？ → 時間を0に設定するか、チェックを外してください。</p>
+            <p>保存方法は？ → CSV／JSON／PDFのいずれかで保存できます。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
 
     <!-- 情報提供 -->
-    <section>
-      <div class="section-title"><h2>★ 情報提供</h2></div>
+    <section id="info">
+      <div class="section-title">
+        <h2>★ 情報提供</h2>
+        <div class="section-controls"></div>
+      </div>
       <div class="grid">
         <div class="pricing-groups">
-        <div class="group">
-          <h3>情報提供（サンプル・説明会）</h3>
-          <div class="item"><div class="meta"><div class="name">サンプルの提供</div><div class="desc">認定申請書類のご参考となる記入サンプルをご提供いたします。</div></div><div class="price">0円<small>（サービス）</small></div></div>
-          <div class="item"><div class="meta"><div class="name">動画①（説明会）</div><div class="desc">説明会動画その1（概要編）</div></div><div class="price">15,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">動画②（説明会）</div><div class="desc">説明会動画その2（審査編）</div></div><div class="price">15,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">動画③（説明会）</div><div class="desc">説明会動画その3（書類編）</div></div><div class="price">15,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">動画④（説明会）</div><div class="desc">説明会動画その4（カリキュラム編）</div></div><div class="price">15,000円</div></div>
+          <div class="group">
+            <h3>情報提供（サンプル・説明会）</h3>
+            <div class="item"><div class="meta"><div class="name">サンプルの提供</div><div class="desc">認定申請書類のご参考となる記入サンプルをご提供いたします。</div></div><div class="price">0円<small>（サービス）</small></div></div>
+            <div class="item"><div class="meta"><div class="name">動画①（説明会）</div><div class="desc">説明会動画その1（概要編）</div></div><div class="price">15,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">動画②（説明会）</div><div class="desc">説明会動画その2（審査編）</div></div><div class="price">15,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">動画③（説明会）</div><div class="desc">説明会動画その3（書類編）</div></div><div class="price">15,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">動画④（説明会）</div><div class="desc">説明会動画その4（カリキュラム編）</div></div><div class="price">15,000円</div></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 診断 -->
-    <section>
-      <div class="section-title"><h2>★ 診断</h2></div>
+    <section id="diagnosis">
+      <div class="section-title">
+        <h2>★ 診断</h2>
+        <div class="section-controls"></div>
+      </div>
       <div class="grid">
         <div class="pricing-groups">
-        <div class="group">
-          <h3>適正レビュー</h3>
-          <div class="item"><div class="meta"><div class="name">設置代表者</div><div class="desc">現在の組織体制や役割分担の適正をチェックします。</div></div><div class="price">10,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">校長</div><div class="desc">現在の校長について認定申請に必要な知識や経験の確認を行います。</div></div><div class="price">10,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">主任教員</div><div class="desc">現在の主任教員の教育経験やカリキュラム編成能力の確認・評価を行います。</div></div><div class="price">10,000円</div></div>
-        </div>
-        <div class="group">
-          <h3>教育課程の適正レビュー</h3>
-          <div class="item"><div class="meta"><div class="name">教育課程レビュー</div><div class="desc">現行のカリキュラムの整合性や学習目標の妥当性をレビューします。</div></div><div class="price">30,000円</div></div>
+          <div class="group">
+            <h3>適正レビュー</h3>
+            <div class="item"><div class="meta"><div class="name">設置代表者</div><div class="desc">現在の組織体制や役割分担の適正をチェックします。</div></div><div class="price">10,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">校長</div><div class="desc">現在の校長について認定申請に必要な知識や経験の確認を行います。</div></div><div class="price">10,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">主任教員</div><div class="desc">現在の主任教員の教育経験やカリキュラム編成能力の確認・評価を行います。</div></div><div class="price">10,000円</div></div>
+          </div>
+          <div class="group">
+            <h3>教育課程の適正レビュー</h3>
+            <div class="item"><div class="meta"><div class="name">教育課程レビュー</div><div class="desc">現行のカリキュラムの整合性や学習目標の妥当性をレビューします。</div></div><div class="price">30,000円</div></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 基盤設計 -->
-    <section>
-      <div class="section-title"><h2>★ 基盤設計</h2></div>
+    <section id="design">
+      <div class="section-title">
+        <h2>★ 基盤設計</h2>
+        <div class="section-controls"></div>
+      </div>
       <div class="grid">
         <div class="pricing-groups">
-        <div class="group">
-          <h3>ロードマップ・改善</h3>
-          <div class="item"><div class="meta"><div class="name">認定申請戦略設計</div><div class="desc">理念・目標・学校の特徴・教育課程・課程の目標など、根幹となる部分の検討をサポートします。</div></div><div class="price">80,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">改善報告書作成支援</div><div class="desc">過去申請がある場合、原因・改善方法・今後の戦略などを助言します。</div></div><div class="price">90,000円</div></div>
-        </div>
-        <div class="group">
-          <h3>主任研修</h3>
-          <div class="item"><div class="meta"><div class="name">研修A（主任研修）</div><div class="desc">認定制度理解・参照枠の理解を中心としたプログラムです。</div></div><div class="price">36,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">研修B（主任研修）</div><div class="desc">実践を中心として、一部カリキュラムの作成をワークショップ形式で行う研修プログラムです。</div></div><div class="price">114,000円</div></div>
+          <div class="group">
+            <h3>ロードマップ・改善</h3>
+            <div class="item"><div class="meta"><div class="name">認定申請戦略設計</div><div class="desc">理念・目標・学校の特徴・教育課程・課程の目標など、根幹となる部分の検討をサポートします。</div></div><div class="price">80,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">改善報告書作成支援</div><div class="desc">過去申請がある場合、原因・改善方法・今後の戦略などを助言します。</div></div><div class="price">90,000円</div></div>
+          </div>
+          <div class="group">
+            <h3>主任研修</h3>
+            <div class="item"><div class="meta"><div class="name">研修A（主任研修）</div><div class="desc">認定制度理解・参照枠の理解を中心としたプログラムです。</div></div><div class="price">36,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">研修B（主任研修）</div><div class="desc">実践を中心として、一部カリキュラムの作成をワークショップ形式で行う研修プログラムです。</div></div><div class="price">114,000円</div></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 書類確認 -->
-    <section>
-      <div class="section-title"><h2>★ 書類確認</h2></div>
+    <section id="docs">
+      <div class="section-title">
+        <h2>★ 書類確認</h2>
+        <div class="section-controls"></div>
+      </div>
       <div class="grid">
         <div class="pricing-groups">
-        <div class="group">
-          <h3>チェック項目</h3>
-          <div class="item"><div class="meta"><div class="name">事前相談指摘事項確認・修正内容FB</div><div class="desc">事前相談で挙がった指摘事項の確認と修正内容のフィードバック。</div></div><div class="price">20,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">申請要件チェック</div><div class="desc">申請に必要な人員・施設・財務要件を満たしているか確認します。</div></div><div class="price">10,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">書類整合チェック</div><div class="desc">各書類が手引きに沿って記載されているか・書類間の不整合がないか確認します。</div></div><div class="price">90,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">カリキュラムチェック</div><div class="desc">教育課程が「課程編成の指針」「参照枠」に沿っているか、また一貫性・運営上の妥当性があるか確認します。</div></div><div class="price">150,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">総合チェック</div><div class="desc">書類全体について、理念とカリキュラムの整合性や運営における不整合などがないか確認します。</div></div><div class="price">50,000円</div></div>
-          <div class="item"><div class="meta"><div class="name">書類読み合わせ</div><div class="desc">記載書類を理解するためのポイントをお伝えしながら読み合わせを行います。</div></div><div class="price">60,000円</div></div>
-        </div>
+          <div class="group">
+            <h3>チェック項目</h3>
+            <div class="item"><div class="meta"><div class="name">事前相談指摘事項確認・修正内容FB</div><div class="desc">事前相談で挙がった指摘事項の確認と修正内容のフィードバック。</div></div><div class="price">20,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">申請要件チェック</div><div class="desc">申請に必要な人員・施設・財務要件を満たしているか確認します。</div></div><div class="price">10,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">書類整合チェック</div><div class="desc">各書類が手引きに沿って記載されているか・書類間の不整合がないか確認します。</div></div><div class="price">90,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">カリキュラムチェック</div><div class="desc">教育課程が「課程編成の指針」「参照枠」に沿っているか、また一貫性・運営上の妥当性があるか確認します。</div></div><div class="price">150,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">総合チェック</div><div class="desc">書類全体について、理念とカリキュラムの整合性や運営における不整合などがないか確認します。</div></div><div class="price">50,000円</div></div>
+            <div class="item"><div class="meta"><div class="name">書類読み合わせ</div><div class="desc">記載書類を理解するためのポイントをお伝えしながら読み合わせを行います。</div></div><div class="price">60,000円</div></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 審査対策 -->
-    <section>
-      <div class="section-title"><h2>★ 審査対策</h2></div>
+    <section id="review">
+      <div class="section-title">
+        <h2>★ 審査対策</h2>
+        <div class="section-controls"></div>
+      </div>
       <div class="grid">
         <div class="pricing-groups">
           <div class="group">
@@ -289,7 +296,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         <div class="pricing-groups" style="margin-top:14px;">
           <div class="group">
             <h3>回答案・ロールプレイ</h3>
-            <!-- 回答案メニューは削除しました -->
             <div class="item"><div class="meta"><div class="name">面接ロールプレイ（第1回）</div><div class="desc">第1回目のロールプレイ。実際の面接審査に沿って、質問を行っていきます。</div></div><div class="price">70,000円</div></div>
             <div class="item"><div class="meta"><div class="name">面接ロールプレイ（第2回）</div><div class="desc">第2回目のロールプレイ。</div></div><div class="price">40,000円</div></div>
             <div class="item"><div class="meta"><div class="name">面接ロールプレイ（第3回）</div><div class="desc">第3回目のロールプレイ。</div></div><div class="price">40,000円</div></div>
@@ -299,23 +305,20 @@ document.addEventListener('DOMContentLoaded', ()=>{
     </section>
 
     <!-- プロジェクト管理 -->
-    <section>
-      <div class="section-title"><h2>★ プロジェクト管理・担当者支援</h2></div>
+    <section id="management">
+      <div class="section-title">
+        <h2>★ プロジェクト管理・担当者支援</h2>
+        <div class="section-controls"></div>
+      </div>
       <div class="grid">
         <div class="pricing-groups">
-        <div class="group">
-          <h3>伴走支援</h3>
-          <div class="item"><div class="meta"><div class="name">認定申請マネージャーの伴走支援</div><div class="desc">申請の準備期間から申請結果の通知までの期間、認定申請経験のあるマネージャーが専任で伴走します。</div></div><div class="price">500,000円<span class="badge" style="margin-left:8px;">推奨</span></div></div>
-          <div class="item"><div class="meta"><div class="name">オンライン相談（1時間）</div><div class="desc">オンラインでの相談（1時間あたり）。</div></div><div class="price">15,000円</div></div>
-        </div>
+          <div class="group">
+            <h3>伴走支援</h3>
+            <div class="item"><div class="meta"><div class="name">認定申請マネージャーの伴走支援</div><div class="desc">申請の準備期間から申請結果の通知までの期間、認定申請経験のあるマネージャーが専任で伴走します。</div></div><div class="price">500,000円<span class="badge" style="margin-left:8px;">推奨</span></div></div>
+            <div class="item"><div class="meta"><div class="name">オンライン相談（1時間）</div><div class="desc">オンラインでの相談（1時間あたり）。</div></div><div class="price">15,000円</div></div>
+          </div>
         </div>
       </div>
-    </section>
-
-    <section>
-      <div class="section-title"><h2>補足・備考</h2></div>
-      <p class="note">納期や内容は要件により異なります。上記は標準パッケージ料金（税別）。カスタマイズ・継続契約は別途ご相談ください。</p>
-      <p class="note">支払い条件：請求書払い（末締め翌月末払い）等を想定。</p>
     </section>
 
     <section id="contact">
@@ -329,6 +332,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
     </footer>
   </div>
   <script>
+    // --- Helper: iterate sections
+    function eachSection(cb){
+      document.querySelectorAll('section').forEach(sec=>{
+        const st = sec.querySelector('.section-title');
+        if(st) cb(sec, st);
+      });
+    }
+
     // Insert visible checkboxes into each item on load (unchecked by default)
     // Also detect and store any "full-support" or "8実施時" alternate prices on the item element as data-full
     document.addEventListener('DOMContentLoaded', ()=>{
@@ -357,28 +368,25 @@ document.addEventListener('DOMContentLoaded', ()=>{
           if(meta) meta.prepend(wrapper); else it.prepend(wrapper);
         }
 
-  // parse description for conditional / full-support price hints and store as data-conditional and/or data-full
+        // parse description for conditional / full-support price hints and store as data-conditional and/or data-full
         try{
           const desc = it.querySelector('.desc')?.textContent || '';
           let m = null;
-          // conditional patterns (e.g. "8を実施している場合：30,000円", "12を実施している場合：20,000円")
           m = desc.match(/(?:[0-9]+)\s*を実施している場合[^0-9]*([0-9,，]+)円/);
           if(!m) m = desc.match(/8.?実施.*?([0-9,，]+)円/);
           if(m){
             const num = Number(m[1].replace(/,|，/g,''));
             if(!Number.isNaN(num) && num>0) it.dataset.conditional = String(num);
           }
-
-          // full-support / 一括額 patterns
           m = desc.match(/フルサポート[^0-9]*([0-9,，]+)円/);
           if(!m) m = desc.match(/一括額[:：]?\s*([0-9,，]+)円/);
           if(m){
             const num2 = Number(m[1].replace(/,|，/g,''));
             if(!Number.isNaN(num2) && num2>0) it.dataset.full = String(num2);
           }
-        }catch(e){/* ignore parsing errors */}
+        }catch(e){}
 
-        // --- set B-price (条件つき/全体提供価格) from known mapping (by name)
+        // set B-price mapping
         try{
           const name = it.querySelector('.name')?.textContent?.trim()||'';
           const mapB = {
@@ -394,7 +402,28 @@ document.addEventListener('DOMContentLoaded', ()=>{
           };
           if(mapB[name]!==undefined) it.dataset.b = String(mapB[name]);
         }catch(e){}
-  });
+      });
+
+      // Build per-section master checkbox controls
+      eachSection((sec, title)=>{
+        const controls = title.querySelector('.section-controls');
+        if(controls && !controls.querySelector('.section-master')){
+          const label = document.createElement('label');
+          label.className = 'item-checkbox';
+          const master = document.createElement('input');
+          master.type = 'checkbox';
+          master.className = 'section-master';
+          master.setAttribute('aria-label','このセクションをすべて選択');
+          const text = document.createElement('span');
+          text.textContent = 'このセクションをすべて選択';
+          label.appendChild(master);
+          label.appendChild(text);
+          controls.appendChild(label);
+        }
+      });
+
+      // Initialize masters based on current item states
+      updateAllSectionMasters();
     });
 
     // collect items
@@ -407,15 +436,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
         const price = Number((priceText.replace(/[^0-9]/g,''))||0);
         const checkbox = it.querySelector('input[type="checkbox"]');
         const checked = checkbox ? checkbox.checked : true;
-  const conditional = it.dataset && it.dataset.conditional ? Number(it.dataset.conditional) : null;
-  const full = it.dataset && it.dataset.full ? Number(it.dataset.full) : null;
-  const bprice = it.dataset && it.dataset.b ? Number(it.dataset.b) : null;
-  const isOnline = /オンライン相談/.test(name);
-  // detect if item belongs to the 'プロジェクト管理' section
-  const sectionEl = it.closest('section');
-  const sectionTitle = sectionEl ? (sectionEl.querySelector('.section-title h2')?.textContent || '') : '';
-  const isProject = /プロジェクト管理/.test(sectionTitle);
-  return {name,desc,price,conditional,full,bprice,checked,isOnline,isProject,el:it};
+        const conditional = it.dataset && it.dataset.conditional ? Number(it.dataset.conditional) : null;
+        const full = it.dataset && it.dataset.full ? Number(it.dataset.full) : null;
+        const bprice = it.dataset && it.dataset.b ? Number(it.dataset.b) : null;
+        const isOnline = /オンライン相談/.test(name);
+        const sectionEl = it.closest('section');
+        const sectionTitle = sectionEl ? (sectionEl.querySelector('.section-title h2')?.textContent || '') : '';
+        const isProject = /プロジェクト管理/.test(sectionTitle);
+        return {name,desc,price,conditional,full,bprice,checked,isOnline,isProject,el:it};
       });
     }
 
@@ -429,8 +457,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
     document.getElementById('exportCsv').addEventListener('click',()=>{
-  const rows = collectItems();
-  const lines = ['"name","description","price","checked"',...rows.map(r=>`"${r.name.replace(/\"/g,'""')}","${r.desc.replace(/\"/g,'""')}",${r.price},${r.checked?1:0}`)];
+      const rows = collectItems();
+      const lines = ['"name","description","price","checked"',...rows.map(r=>`"${r.name.replace(/\"/g,'""')}","${r.desc.replace(/\"/g,'""')}",${r.price},${r.checked?1:0}`)];
       download('prices.csv',lines.join('\n'));
     });
 
@@ -439,12 +467,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
       download('prices.json',JSON.stringify(rows,null,2));
     });
 
-    // estimator: simply sum checked item prices
+    // estimator: simply sum checked item prices (A価格、オンライン相談除外)
     function calcTotal(){
-  const items = collectItems();
-  // exclude online consult from the simple A-sum
-  const total = items.filter(i=>i.checked && !i.isOnline).reduce((s,i)=>s + (i.price||0),0);
-  return total;
+      const items = collectItems();
+      const total = items.filter(i=>i.checked && !i.isOnline).reduce((s,i)=>s + (i.price||0),0);
+      return total;
     }
 
     document.getElementById('calcBtn').addEventListener('click',()=>{
@@ -453,7 +480,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
 
     document.getElementById('calcWithOnline').addEventListener('click',()=>{
-      // Sum price A for checked items, and if online consult is checked, add onlineHours * 15000
       const items = collectItems();
       const onlineHours = Number(document.getElementById('onlineHours')?.value || 0);
       let total = 0;
@@ -468,21 +494,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
       });
       document.getElementById('estimateResult').textContent = '合計: ' + total.toLocaleString() + '円（税別）';
     });
-    // すべてのチェックを外す
-    document.getElementById('uncheckAll').addEventListener('click',()=>{
-      // Uncheck all item checkboxes
-      document.querySelectorAll('.item input[type="checkbox"]').forEach(cb=>{cb.checked=false;});
-      // Uncheck all per-section check-all checkboxes
-      document.querySelectorAll('.section-title input[type="checkbox"]').forEach(cb=>{cb.checked=false;});
-    });
 
     document.getElementById('calcAll').addEventListener('click',()=>{
-      // Sum B-prices for all items (全サービス): use bprice if present, else fall back to conditional/full/normal
+      // B価格優先（なければ conditional → full → 表示価格）
       const items = collectItems();
       const onlineHours = Number(document.getElementById('onlineHours')?.value || 0);
       let total = 0;
       items.forEach(i=>{
-        // If item is in project-management section, include only when its checkbox is checked
+        // プロジェクト管理セクションはチェック済みのみ対象
         if(i.isProject && !i.checked) return;
 
         if(i.isOnline){
@@ -499,60 +518,64 @@ document.addEventListener('DOMContentLoaded', ()=>{
       });
       document.getElementById('estimateResult').textContent = '全サービス合計 : ' + total.toLocaleString() + '円（税別）';
     });
+
+    // --- Section master checkbox behavior
+    function updateSectionMaster(sectionEl){
+      const master = sectionEl.querySelector('.section-master');
+      if(!master) return;
+      const items = sectionEl.querySelectorAll('.item input[type="checkbox"]');
+      const total = items.length;
+      const checked = Array.from(items).filter(cb=>cb.checked).length;
+      if(checked === 0){
+        master.checked = false;
+        master.indeterminate = false;
+      }else if(checked === total){
+        master.checked = true;
+        master.indeterminate = false;
+      }else{
+        master.checked = false;
+        master.indeterminate = true;
+      }
+    }
+
+    function updateAllSectionMasters(){
+      eachSection((sec)=>updateSectionMaster(sec));
+    }
+
     // すべてのアイテムチェック状態をまとめて変更
-  function setAllItemsChecked(checked){
-    document.querySelectorAll('.item input[type="checkbox"]').forEach(cb=>{ cb.checked = checked; });
-    updateAllSectionMasters();
-  }
+    function setAllItemsChecked(checked){
+      document.querySelectorAll('.item input[type="checkbox"]').forEach(cb=>{ cb.checked = checked; });
+      updateAllSectionMasters();
+    }
 
-  document.addEventListener('DOMContentLoaded', ()=>{
-    // 既存のアイテム用チェックボックス生成などはこの中で実施済みの想定
-
-    // グローバル一括ON/OFF（typeを明示）
+    // グローバル一括ON/OFF（typeはHTML側でも指定）
     const btnCheckAll = document.getElementById('checkAll');
     const btnUncheckAll = document.getElementById('uncheckAll');
-    if(btnCheckAll){ btnCheckAll.type = 'button'; btnCheckAll.addEventListener('click', ()=> setAllItemsChecked(true)); }
+    if(btnCheckAll){ btnCheckAll.addEventListener('click', ()=> setAllItemsChecked(true)); }
     if(btnUncheckAll){
-      btnUncheckAll.type = 'button';
       btnUncheckAll.addEventListener('click', ()=>{
         setAllItemsChecked(false);
-        // セクションのマスターも解除
         document.querySelectorAll('.section-title input.section-master[type="checkbox"]').forEach(cb=>{
           cb.checked=false; cb.indeterminate=false;
         });
       });
     }
 
-    // セクション単位のボタン型コントロールを追加したい場合（任意）
-    eachSection((sec, title)=>{
-      const controls = title.querySelector('.section-controls');
-      if(!controls) return;
-      // 既に生成済みならスキップ
-      if(controls.querySelector('.section-check-all')) return;
-
-      const btnAll = document.createElement('button');
-      btnAll.className = 'btn secondary section-check-all';
-      btnAll.type = 'button';
-      btnAll.textContent = 'このセクションをすべて選択';
-
-      const btnNone = document.createElement('button');
-      btnNone.className = 'btn secondary section-uncheck-all';
-      btnNone.type = 'button';
-      btnNone.textContent = 'すべて解除';
-
-      controls.append(btnAll, btnNone);
-    });
-
-    // セクション単位の一括操作（イベント委譲）
-    document.addEventListener('click',(e)=>{
-      if(e.target.matches('.section-check-all, .section-uncheck-all')){
+    // イベント委譲：セクションマスター/アイテムの相互同期
+    document.addEventListener('change',(e)=>{
+      // Master toggles items in section
+      if(e.target && e.target.matches('.section-master')){
         const section = e.target.closest('section');
-        const checked = e.target.matches('.section-check-all');
+        const checked = e.target.checked;
         section.querySelectorAll('.item input[type="checkbox"]').forEach(cb=>{ cb.checked = checked; });
-        updateSectionMaster(section);
+        e.target.indeterminate = false;
+      }
+      // Item checkbox updates its section master
+      if(e.target && e.target.matches('.item input[type="checkbox"]')){
+        const section = e.target.closest('section');
+        if(section) updateSectionMaster(section);
       }
     });
-  });
   </script>
 </body>
 </html>

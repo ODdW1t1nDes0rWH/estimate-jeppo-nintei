@@ -24,10 +24,11 @@
 
     .hero{display:flex;justify-content:space-between;align-items:center;margin:20px 0;padding:18px;background:linear-gradient(180deg,#fff,#fbfdff);border-radius:12px;box-shadow:0 6px 18px rgba(10,30,60,0.06);border:1px solid rgba(10,20,40,0.03)}
     .hero .summary{max-width:66%}
-    .cta{display:flex;gap:12px;align-items:center}
-    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;transition:transform .12s ease,box-shadow .12s ease}
+    .cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;transition:transform .12s ease,box-shadow .12s ease;white-space:nowrap}
     .btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,100,160,0.12)}
     .btn.secondary{background:#fff;color:var(--accent);border:2px solid rgba(0,102,179,0.12)}
+    .btn.smol{padding:8px 12px;font-size:0.92rem}
 
     section{margin-top:28px}
     .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px;justify-content:space-between}
@@ -94,6 +95,9 @@
     .item-checkbox{margin-right:10px;display:inline-flex;align-items:center;padding:6px 8px;border-radius:6px;cursor:pointer}
     .item-checkbox input[type="checkbox"]{width:18px;height:18px;margin:0}
     .skiplink{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+
+    /* Estimator actions */
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
   </style>
 </head>
 <body>
@@ -114,8 +118,7 @@
       <div class="cta">
         <a class="btn" href="#contact">お問い合わせ</a>
         <a class="btn secondary" href="#" onclick="window.print();return false;" aria-label="PDFとして保存">PDFダウンロード</a>
-        <button class="btn" id="exportCsv" type="button">CSV出力</button>
-        <button class="btn" id="exportJson" type="button">JSON出力</button>
+        <button class="btn secondary smol" id="exportCsv" type="button">CSV出力</button>
       </div>
     </div>
 
@@ -140,14 +143,20 @@
       <div style="margin-top:8px">
         <label>オンライン相談時間（時間）: <input type="number" id="onlineHours" min="0" value="1" style="width:72px"></label>
       </div>
-      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+      <!-- 主な計算操作 -->
+      <div class="actions">
         <button class="btn" id="calcBtn" type="button">合計を計算</button>
-        <button class="btn" id="calcWithOnline" type="button">オンライン相談を含めた合計を計算する</button>
-        <button class="btn secondary" id="uncheckAll" type="button">すべてのチェックを外す</button>
-        <button class="btn secondary" id="checkAll" type="button">すべて選択</button>
+        <button class="btn" id="calcWithOnline" type="button">オンライン相談を含めた合計を計算</button>
+      </div>
+      <!-- 一括操作（副次） -->
+      <div class="actions">
+        <button class="btn secondary smol" id="checkAll" type="button">すべて選択</button>
+        <button class="btn secondary smol" id="uncheckAll" type="button">すべてのチェックを外す</button>
       </div>
       <div class="estimate-result" id="estimateResult" style="margin-top:10px;font-weight:800" aria-live="polite">合計: —</div>
-      <div style="margin-top:8px"><button class="btn secondary" id="calcAll" type="button">全サービスを申し込む</button></div>
+      <div class="actions" style="margin-top:8px">
+        <button class="btn secondary" id="calcAll" type="button">全サービスを申し込む</button>
+      </div>
     </aside>
 
     <!-- 使い方ガイド（Estimator直後に配置） -->
@@ -462,11 +471,6 @@
       download('prices.csv',lines.join('\n'));
     });
 
-    document.getElementById('exportJson').addEventListener('click',()=>{
-      const rows = collectItems();
-      download('prices.json',JSON.stringify(rows,null,2));
-    });
-
     // estimator: simply sum checked item prices (A価格、オンライン相談除外)
     function calcTotal(){
       const items = collectItems();
@@ -548,7 +552,7 @@
       updateAllSectionMasters();
     }
 
-    // グローバル一括ON/OFF（typeはHTML側でも指定）
+    // グローバル一括ON/OFF
     const btnCheckAll = document.getElementById('checkAll');
     const btnUncheckAll = document.getElementById('uncheckAll');
     if(btnCheckAll){ btnCheckAll.addEventListener('click', ()=> setAllItemsChecked(true)); }
